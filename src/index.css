@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-body text-gray-900 bg-cream antialiased;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+  }
+
+  body.dark {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  /* Arabic text styling */
+  .arabic-text {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    direction: rtl;
+    text-align: right;
+    line-height: 2.2;
+    letter-spacing: 0.02em;
+    word-spacing: 0.05em;
+  }
+
+  /* Responsive Arabic text */
+  @media (min-width: 640px) {
+    .arabic-text {
+      line-height: 2.4;
+    }
+  }
+
+  .transliteration-text {
+    font-style: italic;
+    @apply text-primary-700 dark:text-primary-300;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 dark:bg-primary-700 rounded-full;
+  }
+
+  /* Disable user select for interactive areas on mobile */
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
+@layer components {
+  .wird-card {
+    @apply relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 
+           border border-gray-100 dark:border-gray-800
+           shadow-sm hover:shadow-lg transition-all duration-300
+           cursor-pointer;
+  }
+
+  /* Disable hover lift on touch devices */
+  @media (hover: hover) {
+    .wird-card:hover {
+      @apply -translate-y-1;
+    }
+  }
+
+  /* Active state for touch */
+  .wird-card:active {
+    @apply scale-[0.98];
+    transition-duration: 100ms;
+  }
+
+  .sibha-button {
+    @apply relative w-24 h-24 rounded-full 
+           bg-gradient-to-br from-primary-500 to-primary-700
+           dark:from-primary-600 dark:to-primary-800
+           text-white font-bold text-2xl
+           flex items-center justify-center
+           shadow-lg active:scale-95 transition-transform duration-100
+           select-none touch-manipulation;
+  }
+
+  /* Larger sibha on tablets */
+  @media (min-width: 640px) {
+    .sibha-button {
+      @apply w-32 h-32 text-3xl;
+    }
+  }
+
+  .sibha-button::after {
+    content: '';
+    @apply absolute inset-0 rounded-full 
+           bg-white/20 opacity-0 transition-opacity duration-200;
+  }
+
+  .sibha-button:active::after {
+    @apply opacity-100;
+  }
+
+  .glass-header {
+    @apply bg-primary-700/95 dark:bg-gray-900/95 backdrop-blur-md;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200;
+  }
+
+  .milestone-ring {
+    @apply absolute inset-0 rounded-full border-4 border-gold-400 
+           animate-pulse-gentle pointer-events-none;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  /* Touch-friendly min sizes */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
