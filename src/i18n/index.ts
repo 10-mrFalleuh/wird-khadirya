@@ -1,12 +1,13 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { ACTIVE_APP } from '../config/app.config';
 
 const newKeysFr = {
   login: 'Se connecter',
   register: "S'inscrire",
   loginSubtitle: 'Connectez-vous pour accéder à vos wirds',
   registerTitle: 'Créer un compte',
-  registerSubtitle: 'Rejoignez la communauté Wird Makhouz Mouridiya',
+  registerSubtitle: 'Rejoignez la communauté tariqa Khadirya',
   loginWithGoogle: 'Continuer avec Google',
   registerWithGoogle: "S'inscrire avec Google",
   or: 'ou',
@@ -49,14 +50,14 @@ const newKeysFr = {
   audioComingSoonDesc: "Les récitations audio seront ajoutées dans une prochaine mise à jour. In sha Allah.",
   audioNotAvailable: 'Non disponible',
 
-  aboutDescription: "Wird Makhouz Mouridiya est une application dédiée à la pratique spirituelle du Wird Makhouz selon la voie de la Tariqa Mouridiya. Elle permet de réciter et comptabiliser les wirds quotidiens avec un chapelet digital interactif.",
+  aboutDescription: `${ACTIVE_APP.name} est une application dédiée à la pratique spirituelle du ${ACTIVE_APP.shortName} selon la voie de la Tariqa ${ACTIVE_APP.shortName}. Elle permet de réciter et comptabiliser les wirds quotidiens avec un chapelet digital interactif.`,
   developedBy: 'Développement',
   developerLabel: 'Développeur',
   supervisedBy: 'Sous la guidance de',
   supervisorTitle: 'Guide spirituel',
   contributionsTitle: 'Contributions',
-  contributionsText: 'Vos contributions et suggestions sont les bienvenues pour améliorer cette application au service de la communauté Mouride.',
-  tariqaInfo: 'La Tariqa Mouridiya est une voie soufie fondée par Cheikh Ahmadou Bamba Mbacké (رضي الله عنه). Cette application vise à faciliter la pratique quotidienne du wird pour tous les disciples mourides.',
+  contributionsText: 'Vos contributions et suggestions sont les bienvenues pour améliorer cette application au service de la communauté Khadirya.',
+  tariqaInfo: 'La Tariqa Khadirya est une voie soufie fondée par Cheikh Abd al-Qadir al-Jilani (رضي الله عنه). Cette application vise à faciliter la pratique quotidienne du wird pour tous les disciples khadriya.',
 
   mediaLibrarySubtitle: 'Tous vos contenus réunis',
   searchPlaceholder: 'Rechercher un wird, audio ou e-book...',
@@ -69,10 +70,10 @@ const newKeysFr = {
   noFavoritesDesc: 'Ajoutez vos wirds, audios ou e-books favoris',
   favorites: 'Favoris',
 
-  ebooksTitle: 'E-books Mouridiya',
+  ebooksTitle: 'E-books Khadirya',
   loading: 'Chargement...',
   noEbooks: 'Aucun e-book disponible',
-  noEbooksDesc: 'Les ouvrages de la Tariqa Mouridiya seront bientôt disponibles. In sha Allah.',
+  noEbooksDesc: 'Les ouvrages de la Tariqa Khadirya seront bientôt disponibles. In sha Allah.',
   downloadEbook: 'Télécharger',
   comingSoonTitle: 'Bientôt disponible',
   comingSoonSubtitle: 'Cette fonctionnalité sera disponible dans une prochaine mise à jour',
@@ -95,7 +96,7 @@ const newKeysEn = {
   register: 'Sign up',
   loginSubtitle: 'Sign in to access your wirds',
   registerTitle: 'Create account',
-  registerSubtitle: 'Join the Wird Makhouz Mouridiya community',
+  registerSubtitle: 'Join the ' + ACTIVE_APP.name + ' community',
   loginWithGoogle: 'Continue with Google',
   registerWithGoogle: 'Sign up with Google',
   or: 'or',
@@ -136,14 +137,14 @@ const newKeysEn = {
   audioComingSoonDesc: 'Audio recitations will be added in a future update. In sha Allah.',
   audioNotAvailable: 'Not available',
 
-  aboutDescription: 'Wird Makhouz Mouridiya is an application dedicated to the spiritual practice of Wird Makhouz according to the Tariqa Mouridiya. It allows you to recite and count daily wirds with an interactive digital rosary.',
+  aboutDescription: `${ACTIVE_APP.name} is an application dedicated to the spiritual practice of ${ACTIVE_APP.shortName} according to the Tariqa ${ACTIVE_APP.shortName}. It allows you to recite and count daily wirds with an interactive digital rosary.`,
   developedBy: 'Development',
   developerLabel: 'Developer',
   supervisedBy: 'Under the guidance of',
   supervisorTitle: 'Spiritual guide',
   contributionsTitle: 'Contributions',
-  contributionsText: 'Your contributions and suggestions are welcome to improve this application in service of the Mouride community.',
-  tariqaInfo: 'The Tariqa Mouridiya is a Sufi path founded by Cheikh Ahmadou Bamba Mbacké (رضي الله عنه). This application aims to facilitate the daily practice of wird for all Mouride disciples.',
+  contributionsText: 'Your contributions and suggestions are welcome to improve this application in service of the Khadirya community.',
+  tariqaInfo: 'The Tariqa Khadirya is a Sufi path founded by Cheikh Abd al-Qadir al-Jilani (رضي الله عنه). This application aims to facilitate the daily practice of wird for all Khadirya disciples.',
 
   mediaLibrarySubtitle: 'All your content in one place',
   searchPlaceholder: 'Search a wird, audio or e-book...',
@@ -156,10 +157,10 @@ const newKeysEn = {
   noFavoritesDesc: 'Add your favorite wirds, audios or e-books',
   favorites: 'Favorites',
 
-  ebooksTitle: 'E-books Mouridiya',
+  ebooksTitle: 'E-books Khadirya',
   loading: 'Loading...',
   noEbooks: 'No e-books available',
-  noEbooksDesc: 'Books of the Tariqa Mouridiya will be available soon. In sha Allah.',
+  noEbooksDesc: 'Books of the Tariqa Khadirya will be available soon. In sha Allah.',
   downloadEbook: 'Download',
   comingSoonTitle: 'Coming soon',
 comingSoonSubtitle: 'Account security management will be available in a future update',
@@ -223,14 +224,14 @@ const newKeysAr = {
   audioComingSoonDesc: 'سيتم إضافة تلاوات صوتية للأوراد في تحديث قادم. إن شاء الله.',
   audioNotAvailable: 'غير متوفر',
 
-  aboutDescription: 'الورد المأخوذ المريدية هو تطبيق مخصص للممارسة الروحية للطريقة المريدية.',
+  aboutDescription: `${ACTIVE_APP.name} هو تطبيق مخصص للممارسة الروحية للطريقة ${ACTIVE_APP.shortName}.`,
   developedBy: 'التطوير',
   developerLabel: 'المطور',
   supervisedBy: 'تحت إرشاد',
   supervisorTitle: 'المرشد الروحي',
   contributionsTitle: 'المساهمات',
   contributionsText: 'مساهماتكم واقتراحاتكم مرحب بها.',
-  tariqaInfo: 'الطريقة المريدية هي طريقة صوفية أسسها الشيخ أحمد بامبا مباكي رضي الله عنه.',
+  tariqaInfo: `الطريقة القادرية هي طريقة صوفية أسسها الشيخ عبد القادر الجيلاني رضي الله عنه.`,
 
   mediaLibrarySubtitle: 'جميع محتوياتك في مكان واحد',
   searchPlaceholder: 'البحث عن ورد أو صوت أو كتاب...',
@@ -269,7 +270,7 @@ const newKeysMs = {
   register: 'Daftar',
   loginSubtitle: 'Log masuk untuk akses wird anda',
   registerTitle: 'Cipta akaun',
-  registerSubtitle: 'Sertai komuniti Wird Makhouz Mouridiya',
+  registerSubtitle: 'Sertai komuniti wird Khadirya',
   loginWithGoogle: 'Teruskan dengan Google',
   registerWithGoogle: 'Daftar dengan Google',
   or: 'atau',
@@ -310,14 +311,14 @@ const newKeysMs = {
   audioComingSoonDesc: 'Akan ditambah nanti. Insya Allah.',
   audioNotAvailable: 'Tidak tersedia',
 
-  aboutDescription: 'Aplikasi spiritual Tariqa Mouridiya.',
+  aboutDescription: `${ACTIVE_APP.name} adalah aplikasi spiritual ${ACTIVE_APP.shortName}.`,
   developedBy: 'Pembangunan',
   developerLabel: 'Pembangun',
   supervisedBy: 'Di bawah bimbingan',
   supervisorTitle: 'Pembimbing rohani',
   contributionsTitle: 'Sumbangan',
   contributionsText: 'Sumbangan dialu-alukan.',
-  tariqaInfo: 'Tariqa Mouridiya ialah jalan tasawuf oleh Syeikh Ahmadou Bamba.',
+  tariqaInfo: 'Tariqa Khadirya ialah jalan tasawuf oleh Syeikh Abd al-Qadir al-Jilani (رضي الله عنه).',
 
   mediaLibrarySubtitle: 'Semua kandungan anda di satu tempat',
   searchPlaceholder: 'Cari wird, audio atau e-book...',
@@ -404,7 +405,7 @@ const newKeysEs = {
   supervisorTitle: 'Guía',
   contributionsTitle: 'Contribuciones',
   contributionsText: 'Bienvenidas',
-  tariqaInfo: 'Tariqa Mouridiya.',
+  tariqaInfo: 'Tariqa Khadirya.',
 
   mediaLibrarySubtitle: 'Todo en un lugar',
   searchPlaceholder: 'Buscar...',
@@ -528,7 +529,7 @@ const resources = {
     translation: {
       greeting: 'السلام عليكم',
       greetingSub: 'As-salāmu ʿalaykum',
-      appName: 'Wird Makhouz Mouridiya',
+      appName: 'wird khadirya',
       dashboard: 'Accueil',
       projets: 'Projets',
       wirdLazim: 'Wirds',
@@ -576,7 +577,7 @@ const resources = {
     translation: {
       greeting: 'السلام عليكم',
       greetingSub: 'As-salāmu ʿalaykum',
-      appName: 'Wird Makhouz Mouridiya',
+      appName: `${ACTIVE_APP.name}`,
       dashboard: 'Home',
       projets: 'Projects',
       wirdLazim: 'Wirds',
@@ -619,7 +620,7 @@ const resources = {
     translation: {
       greeting: 'السلام عليكم',
       greetingSub: 'As-salāmu ʿalaykum',
-      appName: 'Wird Makhouz Mouridiya',
+      appName: `${ACTIVE_APP.name}`,
       dashboard: 'Utama',
       projets: 'Projek',
       ...newKeysMs,
@@ -630,7 +631,7 @@ const resources = {
     translation: {
       greeting: 'السلام عليكم',
       greetingSub: 'As-salāmu ʿalaykum',
-      appName: 'Wird Makhouz Mouridiya',
+      appName: `${ACTIVE_APP.name}`,
       dashboard: 'Inicio',
       projets: 'Proyectos',
       ...newKeysEs,
@@ -641,7 +642,7 @@ const resources = {
     translation: {
       greeting: 'السلام عليكم',
       greetingSub: 'As-salāmu ʿalaykum',
-      appName: 'Wird Makhouz Mouridiya',
+      appName: `${ACTIVE_APP.name}`,
       dashboard: 'Ana Sayfa',
       projets: 'Projeler',
       ...newKeysTr,
@@ -652,7 +653,7 @@ const resources = {
     translation: {
       greeting: 'سلام علیکم',
       greetingSub: 'السلام علیکم',
-      appName: 'ورد مأخوذ مریدیه',
+      appName: `${ACTIVE_APP.name}`,
       dashboard: 'خانه',
       projets: 'پروژه‌ها',
       ...newKeysTr,
@@ -665,11 +666,15 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'fr',
+    lng: localStorage.getItem('lang') || 'fr',
     fallbackLng: 'fr',
     interpolation: {
       escapeValue: false,
     },
   });
+
+  i18n.on('languageChanged', (lng) => {
+  localStorage.setItem('lang', lng);
+});
 
 export default i18n;

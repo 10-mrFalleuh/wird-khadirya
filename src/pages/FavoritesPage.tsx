@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Heart } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { wirdSections } from '../data/litanies';
+import { ACTIVE_WIRDS } from "../data/wirds";
 
 export default function FavoritesPage() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function FavoritesPage() {
     setLoading(false);
   };
 
-  const favoriteWirds = wirdSections.filter((section) =>
+  const favoriteWirds = ACTIVE_WIRDS.filter((section) =>
     favorites.some(
       (fav) => fav.wird_id === String(section.id)
     )

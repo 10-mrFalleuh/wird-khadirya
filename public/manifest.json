@@ -1,6 +1,6 @@
 {
-  "name": "Wird Makhouz",
-  "short_name": "Wird Makhouz",
+  "name": "Wird Khadirya",
+  "short_name": "Wird Khadirya",
   "description": "Application de pratique spirituelle pour la Tariqa Makhouz - Wird Lazim, Wazifa, Hadratoul Juma et Litanies",
   "start_url": "/",
   "id": "/",
@@ -69,14 +69,14 @@
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Dashboard - Wird Makhouz"
+      "label": "Dashboard - Wird Khadirya"
     },
     {
       "src": "/screenshots/screenshot-narrow.png",
       "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Accueil - Wird Makhouz"
+      "label": "Accueil - Wird Khadirya"
     }
   ],
   "shortcuts": [

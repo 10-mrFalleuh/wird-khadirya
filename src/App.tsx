@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { supabase } from "./lib/supabase";
 import { useAppStore } from "./store/appStore";
+import { ACTIVE_APP } from "./config/app.config";
 
 import Dashboard from "./pages/Dashboard";
 import WirdReader from "./pages/WirdReader";
@@ -15,6 +16,7 @@ import MediaLibraryPage from "./pages/MediaLibraryPage";
 import AboutPage from "./pages/AboutPage";
 import AudioPage from "./pages/AudioPage";
 import WirdsPage from "./pages/WirdsPage";
+import i18n from "./i18n";
 
 import BottomNav from "./components/BottomNav";
 
@@ -37,6 +39,38 @@ import FavoritesPage from './pages/FavoritesPage';
 function AppInit() {
   const { login, logout, setAuthLoading } = useAppStore();
 
+  // =========================
+  // 🌍 LANGUAGE INIT
+  // =========================
+  useEffect(() => {
+    const savedLang = localStorage.getItem("lang");
+
+    if (savedLang) {
+      i18n.changeLanguage(savedLang);
+    } else {
+      i18n.changeLanguage("fr");
+      localStorage.setItem("lang", "fr");
+    }
+  }, []);
+
+  // =========================
+  // 🎨 THEME INIT
+  // =========================
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--primary",
+      ACTIVE_APP.theme.primary
+    );
+
+    document.documentElement.style.setProperty(
+      "--secondary",
+      ACTIVE_APP.theme.secondary
+    );
+  }, []);
+
+  // =========================
+  // 🔐 AUTH SYNC
+  // =========================
   useEffect(() => {
     const syncUser = (user: any) => {
       login({

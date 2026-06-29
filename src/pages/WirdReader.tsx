@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppStore } from '../store/appStore';
-import { wirdSections } from '../data/litanies';
+import { ACTIVE_WIRDS } from "../data/wirds";
 import Sibha from '../components/Sibha';
 import { useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,7 +16,7 @@ export default function WirdReader() {
   const { language, resetAllCounters } = useAppStore();
 
 
-const section = wirdSections.find(
+const section = ACTIVE_WIRDS.find(
   (s) => s.id === Number(id)
 );
 

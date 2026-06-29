@@ -1,4 +1,4 @@
-# Wird Makhouz Mouridiya
+# Wird Khadirya
 
 Application de pratique spirituelle pour la Tariqa Mouridiya.
 
@@ -21,7 +21,7 @@ Application de pratique spirituelle pour la Tariqa Mouridiya.
 
 ## Conventions
 
-- Nom de l'app : **Wird Makhouz Mouridiya**
+- Nom de l'app : **Wird Khadirya**
 - Tariqa : **Mouridiya** (fondée par Cheikh Ahmadou Bamba Mbacké رضي الله عنه)
 - Les wirds sont affichés individuellement (Wird 1, Wird 2... Wird 14), un par carte
 - Tous les textes UI utilisent `t()` pour la traduction multilingue

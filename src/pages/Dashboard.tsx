@@ -1,14 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import WirdCard from '../components/WirdCard';
-import { wirdSections } from '../data/litanies';
+import { ACTIVE_WIRDS } from '../data/wirds';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useFavorites } from '../hooks/useFavorites';
 import {
   BookOpen,
   Info,
-  Headphones,
-  Library,
   ChevronRight,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -18,10 +16,6 @@ export default function Dashboard() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { favorites } = useFavorites();
-console.log(
-  'DASHBOARD FAVORITES',
-  favorites
-);
 
   const [showConditions, setShowConditions] = useState(false);
 
@@ -32,7 +26,8 @@ console.log(
 
       <main className="max-w-2xl mx-auto px-4 sm:px-6 pb-24">
 
-        {/* HERO 
+        {/* HERO (FIXED COMMENT) */}
+        {/*
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +53,7 @@ console.log(
             </p>
 
             <h1 className="text-2xl font-bold">
-              Wird Makhouz
+              {t('appName')}
             </h1>
 
             <p className="mt-2 text-sm opacity-90">
@@ -66,16 +61,15 @@ console.log(
             </p>
 
           </div>
-        </motion.div>*/}
+        </motion.div>
+        */}
 
-       {/* CONDITIONS */}
+        {/* CONDITIONS */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35 }}
-          onClick={() =>
-            setShowConditions(!showConditions)
-          }
+          onClick={() => setShowConditions(!showConditions)}
           className="
             w-full
             mt-6
@@ -108,30 +102,19 @@ console.log(
         <AnimatePresence>
           {showConditions && (
             <motion.div
-              initial={{
-                opacity: 0,
-                height: 0,
-              }}
-              animate={{
-                opacity: 1,
-                height: 'auto',
-              }}
-              exit={{
-                opacity: 0,
-                height: 0,
-              }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
               <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 mt-3 shadow">
 
                 <div className="flex gap-3">
-
                   <BookOpen className="w-5 h-5 text-primary-600 mt-1" />
 
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {t('conditionsText')}
                   </p>
-
                 </div>
 
               </div>
@@ -139,29 +122,34 @@ console.log(
           )}
         </AnimatePresence>
 
-{/* MES WIRDS */}
+        {/* MES WIRDS */}
+        <div className="mt-8">
 
-<div className="mt-8">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+            {t('wirdLazim')}
+          </h2>
 
-  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-    {t('wirdLazim')}
-  </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
 
-  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {ACTIVE_WIRDS.slice(0, 6).map((section: any, index: number) => {
 
-    {wirdSections.slice(0, 6).map((section, index) => (
-      <WirdCard
-        key={section.id}
-        section={section}
-        index={index}
-      />
-    ))}
+              const isFavorite = favorites.includes(String(section.id));
 
-  </div>
+              return (
+                <div key={section.id} className="relative">
 
-</div>
+                  <WirdCard
+                    section={section}
+                    index={index}
+                  />
 
- 
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
 
       </main>
     </div>

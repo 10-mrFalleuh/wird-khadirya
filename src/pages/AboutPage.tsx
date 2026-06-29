@@ -124,7 +124,7 @@ export default function AboutPage() {
             سُبْحَانَ ربّكَ ربِّ العِزّةِ عمَّا يَصِفُونَ
           </p>
           <p className="text-[11px] text-gray-300 dark:text-gray-700 mt-1">
-            © 2026 Cercle des Codeurs Spirituels — Wird Makhouz Mouridiya
+            © 2026 Cercle des Codeurs Spirituels — Wird Khadirya
           </p>
         </div>
       </div>
