@@ -295,14 +295,14 @@ export default function SettingsPage() {
         >
           <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider flex items-center gap-2">
             <Settings className="w-4 h-4" />
-            Compte
+            {t("account")}
           </h3>
 
           <button
             onClick={() => navigate("/account-security")}
             className="w-full text-left py-2"
           >
-            Sécurité du compte
+            {t("accountSecurityTitle")}
           </button>
           <button
             onClick={() => navigate("/about")}
@@ -315,7 +315,7 @@ export default function SettingsPage() {
     text-left
   "
           >
-            <span>À propos</span>
+            <span>{t("about")}</span>
             <ChevronRight className="w-4 h-4 text-gray-400" />
           </button>
         </motion.div>
@@ -329,7 +329,7 @@ export default function SettingsPage() {
           >
             <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Administration
+              {t("administration")}
             </h3>
 
             <button
@@ -342,7 +342,7 @@ export default function SettingsPage() {
     font-medium
   "
 >
-  Ouvrir le Dashboard Administrateur
+  {t("openAdminDashboard")}
 </button>
           </motion.div>
         )}
