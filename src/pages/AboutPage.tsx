@@ -84,7 +84,7 @@ export default function AboutPage() {
             </p>
 
             <p className="font-bold text-lg text-primary-700 dark:text-primary-300">
-              Cercle des Codeurs Mourides
+              Cercle des Codeurs Spirituels
             </p>
           </div>
         </motion.div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
             سُبْحَانَ ربّكَ ربِّ العِزّةِ عمَّا يَصِفُونَ
           </p>
           <p className="text-[11px] text-gray-300 dark:text-gray-700 mt-1">
-            © 2026 Cercle des Codeurs Mourides — Wird Makhouz Mouridiya
+            © 2026 Cercle des Codeurs Spirituels — Wird Makhouz Mouridiya
           </p>
         </div>
       </div>
