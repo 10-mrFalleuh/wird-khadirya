@@ -175,14 +175,14 @@ export default function SettingsPage() {
                 onClick={() => navigate("/profile")}
                 className="text-left text-primary-600 text-sm font-medium"
               >
-                Voir mon profil
+                {t("viewProfile")}
               </button>
 
               <button
                 onClick={() => navigate("/profile/edit")}
                 className="text-left text-primary-600 text-sm font-medium"
               >
-                Modifier mon profil
+                {t("editProfile")}
               </button>
             </div>
           </motion.div>

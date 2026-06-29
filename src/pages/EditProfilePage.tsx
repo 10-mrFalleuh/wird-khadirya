@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 export default function EditProfilePage() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -54,44 +56,39 @@ export default function EditProfilePage() {
     }
   };
 
-  const handleAvatarUpload = async (
-  e: React.ChangeEvent<HTMLInputElement>
-) => {
-  const file = e.target.files?.[0];
+  const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  if (!file) return;
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    if (!user) return;
 
-  if (!user) return;
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${user.id}.${fileExt}`;
 
-  const fileExt = file.name.split('.').pop();
-  const fileName = `${user.id}.${fileExt}`;
+    const { error: uploadError } = await supabase.storage
+      .from('avatars')
+      .upload(fileName, file, { upsert: true });
 
-  const { error: uploadError } = await supabase.storage
-    .from('avatars')
-    .upload(fileName, file, {
-      upsert: true,
-    });
+    if (uploadError) {
+      console.error(uploadError);
+      alert(t('uploadError'));
+      return;
+    }
 
-  if (uploadError) {
-    console.error(uploadError);
-    alert("Erreur lors de l'upload");
-    return;
-  }
+    const {
+      data: { publicUrl },
+    } = supabase.storage
+      .from('avatars')
+      .getPublicUrl(fileName);
 
-  const {
-    data: { publicUrl },
-  } = supabase.storage
-    .from('avatars')
-    .getPublicUrl(fileName);
+    setAvatarUrl(publicUrl);
 
-  setAvatarUrl(publicUrl);
-
-  alert('Photo téléchargée avec succès');
-};
+    alert(t('uploadSuccess'));
+  };
 
   const handleSave = async () => {
     try {
@@ -117,15 +114,15 @@ export default function EditProfilePage() {
 
       if (error) {
         console.error(error);
-        alert('Erreur lors de la sauvegarde');
+        alert(t('saveError'));
         return;
       }
 
-      alert('Profil mis à jour avec succès');
+      alert(t('saveSuccess'));
       navigate('/profile');
     } catch (err) {
       console.error(err);
-      alert('Erreur lors de la sauvegarde');
+      alert(t('saveError'));
     } finally {
       setSaving(false);
     }
@@ -134,7 +131,7 @@ export default function EditProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        Chargement...
+        {t('loading')}
       </div>
     );
   }
@@ -144,14 +141,15 @@ export default function EditProfilePage() {
       <div className="max-w-xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6">
 
         <h1 className="text-2xl font-bold mb-6 text-center">
-          Modifier mon profil
+          {t('editProfileTitle')}
         </h1>
 
         <div className="space-y-4">
 
+          {/* NOM */}
           <div>
             <label className="block mb-1 font-medium">
-              Nom complet
+              {t('fullName')}
             </label>
             <input
               type="text"
@@ -161,9 +159,10 @@ export default function EditProfilePage() {
             />
           </div>
 
+          {/* PHONE */}
           <div>
             <label className="block mb-1 font-medium">
-              Téléphone
+              {t('phone')}
             </label>
             <input
               type="text"
@@ -173,9 +172,10 @@ export default function EditProfilePage() {
             />
           </div>
 
+          {/* COUNTRY */}
           <div>
             <label className="block mb-1 font-medium">
-              Pays
+              {t('country')}
             </label>
             <input
               type="text"
@@ -185,9 +185,10 @@ export default function EditProfilePage() {
             />
           </div>
 
+          {/* AGE */}
           <div>
             <label className="block mb-1 font-medium">
-              Âge
+              {t('age')}
             </label>
             <input
               type="number"
@@ -197,9 +198,10 @@ export default function EditProfilePage() {
             />
           </div>
 
+          {/* GENDER */}
           <div>
             <label className="block mb-1 font-medium">
-              Sexe
+              {t('gender')}
             </label>
 
             <select
@@ -207,41 +209,40 @@ export default function EditProfilePage() {
               onChange={(e) => setGender(e.target.value)}
               className="w-full border rounded-xl px-4 py-3"
             >
-              <option value="">Choisir</option>
-              <option value="male">Homme</option>
-              <option value="female">Femme</option>
+              <option value="">{t('choose')}</option>
+              <option value="male">{t('male')}</option>
+              <option value="female">{t('female')}</option>
             </select>
           </div>
 
+          {/* AVATAR */}
           <div>
-  <label className="block mb-2 font-medium">
-    Photo de profil
-  </label>
+            <label className="block mb-2 font-medium">
+              {t('profilePhoto')}
+            </label>
 
-  {avatarUrl && (
-    <img
-      src={avatarUrl}
-      alt="Avatar"
-      className="w-24 h-24 rounded-full object-cover border mb-3"
-    />
-  )}
+            {avatarUrl && (
+              <img
+                src={avatarUrl}
+                className="w-24 h-24 rounded-full object-cover border mb-3"
+              />
+            )}
 
-  <input
-    type="file"
-    accept="image/*"
-    onChange={handleAvatarUpload}
-    className="w-full border rounded-xl px-4 py-3"
-  />
-</div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleAvatarUpload}
+              className="w-full border rounded-xl px-4 py-3"
+            />
+          </div>
 
+          {/* SAVE */}
           <button
             onClick={handleSave}
             disabled={saving}
             className="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl font-medium"
           >
-            {saving
-              ? 'Sauvegarde...'
-              : 'Enregistrer les modifications'}
+            {saving ? t('saving') : t('saveChanges')}
           </button>
 
         </div>

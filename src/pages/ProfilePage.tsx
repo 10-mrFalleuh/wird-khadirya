@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { User, Mail, Phone, Globe } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -26,10 +28,6 @@ export default function ProfilePage() {
         .eq("id", user.id)
         .single();
 
-      console.log("USER ID:", user.id);
-      console.log("PROFILE:", data);
-      console.log("ERROR:", error);
-
       if (error) {
         console.error(error);
         return;
@@ -50,7 +48,7 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Chargement du profil...</p>
+        <p>{t('loadingProfile')}</p>
       </div>
     );
   }
@@ -59,6 +57,7 @@ export default function ProfilePage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
       <div className="max-w-xl mx-auto">
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6">
+
           {/* Avatar + Nom */}
           <div className="flex flex-col items-center">
             {profile?.avatar_url ? (
@@ -74,7 +73,7 @@ export default function ProfilePage() {
             )}
 
             <h1 className="mt-4 text-2xl font-bold text-gray-800 dark:text-white">
-              {profile?.full_name || "Utilisateur"}
+              {profile?.full_name || t('user')}
             </h1>
 
             <p className="text-gray-500">{profile?.email || "-"}</p>
@@ -82,6 +81,7 @@ export default function ProfilePage() {
 
           {/* Informations */}
           <div className="mt-8 space-y-4">
+
             <div className="flex items-center gap-3">
               <User className="w-5 h-5 text-primary-600" />
               <span>{profile?.full_name || "-"}</span>
@@ -94,10 +94,10 @@ export default function ProfilePage() {
 
             <p className="text-sm font-medium text-primary-600 mt-1">
               {profile?.role === "super_admin"
-                ? "👑 Super Administrateur"
+                ? t('superAdmin')
                 : profile?.role === "admin"
-                  ? "🛠️ Administrateur"
-                  : "👤 Utilisateur"}
+                ? t('admin')
+                : t('userRole')}
             </p>
 
             <div className="flex items-center gap-3">
@@ -111,20 +111,21 @@ export default function ProfilePage() {
             </div>
 
             <div className="flex justify-between border-t pt-3">
-              <span className="font-medium">Âge</span>
+              <span className="font-medium">{t('age')}</span>
               <span>{profile?.age || "-"}</span>
             </div>
 
             <div className="flex justify-between">
-              <span className="font-medium">Genre</span>
+              <span className="font-medium">{t('gender')}</span>
               <span>
                 {profile?.gender === "male"
-                  ? "Homme"
+                  ? t('male')
                   : profile?.gender === "female"
-                    ? "Femme"
-                    : "-"}
+                  ? t('female')
+                  : "-"}
               </span>
             </div>
+
           </div>
 
           {/* Bouton Modifier */}
@@ -132,8 +133,9 @@ export default function ProfilePage() {
             onClick={() => navigate("/profile/edit")}
             className="w-full mt-8 bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl font-medium transition-colors"
           >
-            Modifier mon profil
+            {t('editProfile')}
           </button>
+
         </div>
       </div>
     </div>

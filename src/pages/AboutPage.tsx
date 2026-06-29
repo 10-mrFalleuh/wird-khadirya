@@ -72,7 +72,7 @@ export default function AboutPage() {
             </p>
 
             <p className="font-display text-xl font-bold text-gold-600 dark:text-gold-400 mt-2">
-              Cheikh Ahmadou Bamba Mbacké
+              Cheikh Ahmed Karim Cissé
             </p>
 
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
