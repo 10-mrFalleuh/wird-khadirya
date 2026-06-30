@@ -1,6 +1,7 @@
 import * as XLSX from "xlsx";
 import fs from "fs";
 import path from "path";
+import { KHADIRIYA_IMAGES } from "../src/data/khadiryaImages";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -56,6 +57,8 @@ const litanies = rows
   .map((r: any, index: number) => ({
     id: index + 1,
 
+    image: KHADIRIYA_IMAGES[index % KHADIRIYA_IMAGES.length],
+
     arName: safe(r["AR — العربية (texte arabe intégral)"]),
     frName: safe(r["FR — Français"]),
     enName: safe(r["EN — English"]),
@@ -107,8 +110,7 @@ const wirdSections = litanies.map((lit, index) => ({
   descriptionFa: lit.faContent,
   descriptionMs: lit.msContent,
 
-  // ✅ IMPORTANT: data-only (no image logic here)
-  image: "",
+  image: lit.image, // OK maintenant
 
   color: colors[index % colors.length],
 

@@ -1,104 +1,81 @@
-import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
-import WirdCard from '../components/WirdCard';
-import { ACTIVE_WIRDS } from '../data/wirds';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useFavorites } from '../hooks/useFavorites';
-import {
-  BookOpen,
-  Info,
-  ChevronRight,
-} from 'lucide-react';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ChevronRight, Info } from 'lucide-react';
+import { useState } from 'react';
+
+const cards = [
+  {
+    route: '/wirds',
+    image: '/images/wirds/1.jpg',
+    title: '📖 Wird Khadirya',
+    description: '14 wirds • Lecture spirituelle',
+  },
+  {
+    route: '/audio',
+    image: '/images/wirds/2.jpg',
+    title: '🎧 Audio',
+    description: 'Écouter les récitations',
+  },
+  {
+    route: '/ebooks',
+    image: '/images/wirds/3.jpg',
+    title: '📚 Ebook',
+    description: 'Livres & textes spirituels',
+  },
+  {
+    route: '/Médiatheque',
+    image: '/images/wirds/4.jpg',
+    title: '🎬 Médiatheque',
+    description: 'Vidéos & contenus',
+  },
+];
 
 export default function Dashboard() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
-  const { favorites } = useFavorites();
-
   const [showConditions, setShowConditions] = useState(false);
 
   return (
-    <div className="min-h-screen min-h-[100dvh] bg-cream dark:bg-gray-950 bg-islamic-pattern">
+    <div className="min-h-screen bg-gradient-to-b from-[#f6f6f6] to-white dark:from-gray-950 dark:to-gray-900">
 
       <Header />
 
-      <main className="max-w-2xl mx-auto px-4 sm:px-6 pb-24">
+      <main className="max-w-2xl mx-auto px-4 pb-24">
 
-        {/* HERO (FIXED COMMENT) */}
-        {/*
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="
-            relative overflow-hidden
-            rounded-3xl
-            mt-4
-            p-6
-            bg-gradient-to-br
-            from-primary-700
-            via-primary-800
-            to-primary-900
-            text-white
-            shadow-2xl
-          "
-        >
-          <div className="absolute inset-0 opacity-10 bg-islamic-pattern" />
-
-          <div className="relative z-10 text-center">
-
-            <p className="font-arabic text-3xl sm:text-4xl mb-4 leading-loose">
-              بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-            </p>
-
-            <h1 className="text-2xl font-bold">
-              {t('appName')}
-            </h1>
-
-            <p className="mt-2 text-sm opacity-90">
-              Lecture quotidienne • Wirds • Audios • E-books
-            </p>
-
-          </div>
-        </motion.div>
-        */}
-
+        {/* ===================== */}
         {/* CONDITIONS */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
+        {/* ===================== */}
+        <motion.div
+          whileTap={{ scale: 0.98 }}
           onClick={() => setShowConditions(!showConditions)}
           className="
-            w-full
-            mt-6
-            flex
-            items-center
-            justify-between
-            rounded-2xl
-            p-4
-            bg-primary-50
-            dark:bg-primary-900/20
-            border
-            border-primary-100
-            dark:border-primary-800
+            mt-6 flex items-center justify-between
+            bg-blue-500/10 backdrop-blur-xl
+            border border-blue-300/30
+            dark:border-blue-500/20
+            rounded-2xl px-4 py-4 shadow-md
+            cursor-pointer
           "
         >
           <div className="flex items-center gap-3">
-            <Info className="w-5 h-5 text-primary-600" />
-            <span className="font-medium">
-              {t('conditions')}
+            <div className="p-2 rounded-xl bg-blue-500/20">
+              <Info size={18} className="text-blue-600" />
+            </div>
+
+            <span className="font-semibold text-gray-800 dark:text-white">
+              Conditions d'utilisation
             </span>
           </div>
 
           <ChevronRight
-            className={`w-5 h-5 transition-transform ${
+            size={20}
+            className={`text-blue-500 transition-transform duration-300 ${
               showConditions ? 'rotate-90' : ''
             }`}
           />
-        </motion.button>
+        </motion.div>
 
+        {/* CONDITIONS CONTENT */}
         <AnimatePresence>
           {showConditions && (
             <motion.div
@@ -107,47 +84,86 @@ export default function Dashboard() {
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 mt-3 shadow">
-
-                <div className="flex gap-3">
-                  <BookOpen className="w-5 h-5 text-primary-600 mt-1" />
-
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {t('conditionsText')}
-                  </p>
-                </div>
-
+              <div className="
+                mt-3 p-5 rounded-2xl
+                bg-blue-500/5 backdrop-blur-xl
+                border border-blue-200/30
+                text-sm text-gray-600 dark:text-gray-300 leading-relaxed
+              ">
+                📌 Cette application est dédiée à la lecture spirituelle du Wird Khadirya.  
+                Respect, intention et régularité sont recommandés dans l'utilisation.
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* MES WIRDS */}
-        <div className="mt-8">
+        {/* ===================== */}
+        {/* TITLE */}
+        {/* ===================== */}
+        <h2 className="text-xl font-bold mt-7 mb-4 text-gray-800 dark:text-white">
+          Accès rapide
+        </h2>
 
-          <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-            {t('wirdLazim')}
-          </h2>
+        {/* ===================== */}
+        {/* CARDS GRID */}
+        {/* ===================== */}
+        <div className="grid grid-cols-2 gap-4">
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {cards.map((card) => (
+            <motion.div
+              key={card.route}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => navigate(card.route)}
+              className="cursor-pointer"
+            >
 
-            {ACTIVE_WIRDS.slice(0, 6).map((section: any, index: number) => {
+              {/* CARD CONTAINER */}
+              <div className="
+                rounded-2xl overflow-hidden
+                shadow-lg hover:shadow-2xl transition
+                bg-white dark:bg-gray-900
+              ">
 
-              const isFavorite = favorites.includes(String(section.id));
+                {/* IMAGE SECTION */}
+                <div className="relative h-56">
 
-              return (
-                <div key={section.id} className="relative">
-
-                  <WirdCard
-                    section={section}
-                    index={index}
+                  <img
+                    src={card.image}
+                    className="w-full h-full object-cover"
                   />
 
-                </div>
-              );
-            })}
+                  {/* overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-          </div>
+                  {/* badge */}
+                  {card.badge && (
+                    <div className="
+                      absolute top-3 left-3
+                      bg-white/90 text-xs px-2 py-1 rounded-full
+                      text-gray-700 font-medium
+                    ">
+                      {card.badge}
+                    </div>
+                  )}
+                </div>
+
+                {/* TEXT SECTION (SEPARATED) */}
+                <div className="px-3 py-3">
+
+                  <h3 className="font-bold text-gray-900 dark:text-white text-sm">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    {card.description}
+                  </p>
+
+                </div>
+
+              </div>
+            </motion.div>
+          ))}
 
         </div>
 

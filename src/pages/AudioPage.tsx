@@ -35,7 +35,7 @@ export default function AudioPage() {
 
           {/* Preview cards */}
           <div className="mt-8 space-y-3 max-w-sm mx-auto">
-            {['Mawahibu Nafi', 'Assalamu Alayka', 'Sindidi', 'Jawartu'].map((name, i) => (
+            {['Al-Fuyudat al-Rabbaniyya (الفيوضات الربانية)', 'Al-Qasida al-Ghawthiyya (القصيدة الغوثية)', 'Al-Khutbat al-Iftikharivya (خطبة الافتخارية)', 'Khamriyat al-Ghawth (خمرية الغوث)'].map((name, i) => (
               <motion.div key={name}
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 + i * 0.1 }}
