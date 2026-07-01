@@ -137,15 +137,7 @@ export default function Dashboard() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
                   {/* badge */}
-                  {card.badge && (
-                    <div className="
-                      absolute top-3 left-3
-                      bg-white/90 text-xs px-2 py-1 rounded-full
-                      text-gray-700 font-medium
-                    ">
-                      {card.badge}
-                    </div>
-                  )}
+                  
                 </div>
 
                 {/* TEXT SECTION (SEPARATED) */}
