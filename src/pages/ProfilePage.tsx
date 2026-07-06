@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { User, Mail, Phone, Globe } from "lucide-react";
-import { supabase } from "../lib/supabase";
+import { supabase } from "../lib/neon";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 

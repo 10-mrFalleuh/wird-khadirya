@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
-import { supabase } from "./lib/supabase";
+import { neon } from "./lib/neon";
 import { useAppStore } from "./store/appStore";
 import { ACTIVE_APP } from "./config/app.config";
 

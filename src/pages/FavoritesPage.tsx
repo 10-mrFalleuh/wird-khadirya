@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Heart } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../lib/neon';
 import { ACTIVE_WIRDS } from "../data/wirds";
 
 export default function FavoritesPage() {
