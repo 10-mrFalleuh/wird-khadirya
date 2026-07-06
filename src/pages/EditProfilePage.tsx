@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/neon';
+import { supabase } from '../lib/supabase';
 import { useTranslation } from 'react-i18next';
 
 export default function EditProfilePage() {

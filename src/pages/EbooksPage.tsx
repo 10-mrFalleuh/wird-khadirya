@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Download, BookOpen } from 'lucide-react';
-import { supabase } from '../lib/neon';
+import { supabase } from '../lib/supabase';
 
 interface Ebook {
   id: string;

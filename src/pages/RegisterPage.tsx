@@ -12,7 +12,7 @@ import {
   Globe,
   Calendar,
 } from 'lucide-react';
-import { supabase } from '../lib/neon';
+import { supabase } from '../lib/supabase';
 
 const countries = [
   'Sénégal',

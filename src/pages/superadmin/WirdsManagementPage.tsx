@@ -9,7 +9,7 @@ import {
   Star,
   BookOpen,
 } from 'lucide-react';
-import { supabase } from '../../lib/neon';
+import { supabase } from '../../lib/supabase';
 
 type Wird = {
   id: string;

@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { supabase } from '../lib/neon';
+import { supabase } from '../lib/supabase';
 
 export default function LoginPage() {
   const { t } = useTranslation();

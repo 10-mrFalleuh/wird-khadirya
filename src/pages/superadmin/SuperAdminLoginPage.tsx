@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Crown, Mail, Lock } from 'lucide-react';
-import { supabase } from '../../lib/neon';
+import { supabase } from '../../lib/supabase';
 
 export default function SuperAdminLoginPage() {
   const navigate = useNavigate();

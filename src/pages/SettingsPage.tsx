@@ -14,7 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/neon";
+import { supabase } from "../lib/supabase";
 import { ShieldCheck } from "lucide-react";
 
 export default function SettingsPage() {
