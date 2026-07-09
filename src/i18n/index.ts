@@ -100,6 +100,7 @@ booksTexts: "Livres & textes spirituels",
 mediaTitle: "Médiathèque",
 videosContents: "Vidéos & contenus",
 quickAccess: "Accès rapide",
+conditions: "Conditions",
 };
 
 const newKeysEn = {
@@ -198,6 +199,7 @@ booksTexts: "Books & Spiritual Texts",
 mediaTitle: "Media Library",
 videosContents: "Videos & Content",
 quickAccess: "Quick Access",
+conditions: "Conditions",
 };
 
 const newKeysAr = {
@@ -296,6 +298,7 @@ booksTexts: "الكتب والنصوص الروحية",
 mediaTitle: "المكتبة الإعلامية",
 videosContents: "الفيديوهات والمحتويات",
 quickAccess: "الوصول السريع",
+conditions: "الشروط",
 };
 
 const newKeysMs = {
@@ -394,6 +397,7 @@ booksTexts: "Buku & Teks Kerohanian",
 mediaTitle: "Perpustakaan Media",
 videosContents: "Video & Kandungan",
 quickAccess: "Akses Pantas",
+conditions: "Conditions",
 };
 
 const newKeysEs = {
@@ -492,6 +496,7 @@ booksTexts: "Libros y textos espirituales",
 mediaTitle: "Mediateca",
 videosContents: "Vídeos y contenidos",
 quickAccess: "Acceso rápido",
+conditions: "Condiciones",
 };
 
 const newKeysTr = {
@@ -588,6 +593,7 @@ booksTexts: "Kitaplar ve Manevi Metinler",
 mediaTitle: "Medya Kütüphanesi",
 videosContents: "Videolar ve İçerikler",
 quickAccess: "Hızlı Erişim",
+conditions: "Şartlar",
 };
 
 const resources = {
@@ -633,7 +639,6 @@ const resources = {
       wirdComplete: 'Wird terminé !',
       bismillah: 'بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ',
       readingMode: 'Mode lecture',
-      conditions: 'Conditions',
       dhikr: 'Dhikr',
       conditionsText: 'Conditions: ablution, qibla.',
       ...newKeysFr,
