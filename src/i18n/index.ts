@@ -99,6 +99,7 @@ ebookTitle: "Ebook",
 booksTexts: "Livres & textes spirituels",
 mediaTitle: "Médiathèque",
 videosContents: "Vidéos & contenus",
+quickAccess: "Accès rapide",
 };
 
 const newKeysEn = {
@@ -196,6 +197,7 @@ ebookTitle: "E-Books",
 booksTexts: "Books & Spiritual Texts",
 mediaTitle: "Media Library",
 videosContents: "Videos & Content",
+quickAccess: "Quick Access",
 };
 
 const newKeysAr = {
@@ -293,6 +295,7 @@ ebookTitle: "الكتب",
 booksTexts: "الكتب والنصوص الروحية",
 mediaTitle: "المكتبة الإعلامية",
 videosContents: "الفيديوهات والمحتويات",
+quickAccess: "الوصول السريع",
 };
 
 const newKeysMs = {
@@ -390,6 +393,7 @@ ebookTitle: "E-Buku",
 booksTexts: "Buku & Teks Kerohanian",
 mediaTitle: "Perpustakaan Media",
 videosContents: "Video & Kandungan",
+quickAccess: "Akses Pantas",
 };
 
 const newKeysEs = {
@@ -487,6 +491,7 @@ ebookTitle: "Libros electrónicos",
 booksTexts: "Libros y textos espirituales",
 mediaTitle: "Mediateca",
 videosContents: "Vídeos y contenidos",
+quickAccess: "Acceso rápido",
 };
 
 const newKeysTr = {
@@ -582,6 +587,7 @@ ebookTitle: "E-Kitaplar",
 booksTexts: "Kitaplar ve Manevi Metinler",
 mediaTitle: "Medya Kütüphanesi",
 videosContents: "Videolar ve İçerikler",
+quickAccess: "Hızlı Erişim",
 };
 
 const resources = {
